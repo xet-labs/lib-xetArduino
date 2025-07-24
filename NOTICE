@@ -1,0 +1,30 @@
+libXetArduino - Robotic Utility Library for ESP32 Systems  
+Copyright 2025 Rishikesh Prasad  
+https://github.com/xet-labs/SharedLib
+
+Licensed under the Apache License, Version 2.0.  
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+This project makes use of the following third-party libraries:
+
+- AccelStepper (MIT License)  
+  https://www.airspayce.com/mikem/arduino/AccelStepper
+
+- Adafruit VL53L0X (MIT License)  
+  https://github.com/adafruit/Adafruit_VL53L0X
+
+- ESP32Servo (MIT License)  
+  https://github.com/madhephaestus/ESP32Servo
+
+- Arduino Wire (LGPL 2.1)  
+  https://github.com/espressif/arduino-esp32/tree/master/libraries/Wire
+
+- WiFi (LGPL 2.1)  
+  https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi
+
+- Networking (LGPL 2.1)  
+  Included as part of esp32 Arduino core.
+
+All third-party software is subject to its own license, retained in full.
