@@ -24,6 +24,8 @@ In your main project directory:
 ```bash
 # Add libXetArduino as a submodule under lib/
 git submodule add https://github.com/xet-labs/libXetArduino.git lib/libXetArduino
+#OR for ssh
+git submodule add git@github.com:xet-labs/libXetArduino.git lib/libXetArduino
 
 # Initialize and fetch submodule content
 git submodule update --init --recursive
