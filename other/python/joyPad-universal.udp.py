@@ -7,7 +7,7 @@ from datetime import datetime
 
 # ------------------ Command-line arguments ------------------
 parser = argparse.ArgumentParser(description="Xbox controller UDP sender for ESP32")
-parser.add_argument("--ip", type=str, default="robsoc_v2.local", help="Device IP (default: robsoc_v2.local)")
+parser.add_argument("--ip", type=str, default="robSoc.local", help="Device IP (default: robSoc.local)")
 parser.add_argument("--port", type=int, default=8888, help="Device UDP port (default: 8888)")
 args = parser.parse_args()
 

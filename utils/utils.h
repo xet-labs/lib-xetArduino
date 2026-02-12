@@ -15,7 +15,9 @@ namespace sys
     struct Hardware
     {
         int LED = 2;
+        bool LED_LOCK = false;
         int BUZZER = 4;
+        bool BUZZER_LOCK = false;
     };
     struct Config
     {
@@ -174,4 +176,46 @@ namespace net
         bool init(uint16_t port = 0);
     }
 
+}
+
+
+
+namespace util{
+    void printRawBytes(const uint8_t *data, size_t len);
+}
+namespace btn
+{
+    namespace Joypad
+    {
+        struct __attribute__((packed)) State
+        {
+            uint16_t btns;
+            int16_t axisLX;
+            int16_t axisLY;
+            int16_t axisRX;
+            int16_t axisRY;
+            uint8_t triggerLT;
+            uint8_t triggerRT;
+        };
+
+        static_assert(sizeof(State) == 12, "Joypad::State must be 12 bytes");
+
+        namespace Buttons
+        {
+            constexpr uint16_t A          = 1 << 0;
+            constexpr uint16_t B          = 1 << 1;
+            constexpr uint16_t X          = 1 << 2;
+            constexpr uint16_t Y          = 1 << 3;
+            constexpr uint16_t LB         = 1 << 4;
+            constexpr uint16_t RB         = 1 << 5;
+            constexpr uint16_t BACK       = 1 << 6;
+            constexpr uint16_t START      = 1 << 7;
+            constexpr uint16_t LS         = 1 << 8;
+            constexpr uint16_t RS         = 1 << 9;
+            constexpr uint16_t DPAD_UP    = 1 << 10;
+            constexpr uint16_t DPAD_DOWN  = 1 << 11;
+            constexpr uint16_t DPAD_LEFT  = 1 << 12;
+            constexpr uint16_t DPAD_RIGHT = 1 << 13;
+        }
+    }
 }

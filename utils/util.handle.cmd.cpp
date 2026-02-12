@@ -44,11 +44,13 @@ namespace handle
       {
         if (strcmp(args[0], "on") == 0)
         {
+          sys::hw.LED_LOCK = true;
           digitalWrite(sys::hw.LED, HIGH);
           Serial.println("LED turned ON");
         }
         else if (strcmp(args[0], "off") == 0)
         {
+          sys::hw.LED_LOCK = false;
           digitalWrite(sys::hw.LED, LOW);
           Serial.println("LED turned OFF");
         }

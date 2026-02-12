@@ -18,7 +18,7 @@ namespace net::ap
         if (WiFi.softAPConfig(connection.local_ip, connection.gateway_ip, connection.subnet))
         {
             if (!WiFi.softAP(connection.ssid, connection.pass, connection.channel, connection.hidden, connection.max_conn,
-                             connection.ftm_responder, connection.auth_mode, connection.cipher))
+                connection.ftm_responder, connection.auth_mode, connection.cipher))
             {
                 Serial.println(F("\r[AP] Failed to start SoftAP"));
                 return;

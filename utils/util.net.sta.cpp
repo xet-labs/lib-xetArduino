@@ -69,24 +69,29 @@ namespace net::sta
             Serial.print(F("[STA] Connecting to custom: "));
         }
 
-        Serial.print(ssid); // single data for above print statement
+            Serial.print(F("'"));
+            Serial.print(ssid);     // single data for above print statement
+            Serial.println(F("' "));
 
         // WiFi.setAutoReconnect(true);
         WiFi.begin(ssid, pass);
 
         if (WiFi.waitForConnectResult() == WL_CONNECTED)
         {
-            Serial.printf(F("\r[STA] Connected to '"));
+            Serial.print(F("\r[STA] Connected to '"));
             Serial.print(ssid);
-            Serial.println(F("'                                                                                     "));
+            Serial.println(F("'"));
             info();
         }
         else
         {
-            Serial.print(F("\r[STA] ERR: Couldn’t connect to '"));
+            Serial.print(F("\r[STA] ERR: Couldn't connect to '"));
             Serial.print(ssid);
-            Serial.println(F("'                                                                                     "));
+            Serial.println(F("'"));
+
+            WiFi.disconnect(true);
         }
+
     }
 
     bool addConnection(const char *ssid, const char *pass)

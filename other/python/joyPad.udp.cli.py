@@ -7,7 +7,7 @@ import socket, struct
 from datetime import datetime
 
 parser = argparse.ArgumentParser(description="Process command-line arguments.")
-parser.add_argument("--ip", type=str, default="robsoc_v2.local", help="Device IP (default: robsoc_v2.local)")
+parser.add_argument("--ip", type=str, default="roboSoc.local", help="Device IP (default: roboSoc.local)")
 
 args = parser.parse_args()
 # -------- Configuration --------
