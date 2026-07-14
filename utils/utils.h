@@ -179,13 +179,14 @@ namespace net
 }
 
 
-
 namespace util{
-    void printRawBytes(const uint8_t *data, size_t len);
+    void printBytes(const uint8_t *data, size_t len);
 }
-namespace btn
+
+
+namespace controller
 {
-    namespace Joypad
+    namespace Ps3
     {
         struct __attribute__((packed)) State
         {
@@ -200,7 +201,7 @@ namespace btn
 
         static_assert(sizeof(State) == 12, "Joypad::State must be 12 bytes");
 
-        namespace Buttons
+        namespace Button
         {
             constexpr uint16_t A          = 1 << 0;
             constexpr uint16_t B          = 1 << 1;
@@ -216,6 +217,22 @@ namespace btn
             constexpr uint16_t DPAD_DOWN  = 1 << 11;
             constexpr uint16_t DPAD_LEFT  = 1 << 12;
             constexpr uint16_t DPAD_RIGHT = 1 << 13;
+
+            // Check if ALL specified buttons are pressed
+            // Usage: if (Button::isAll(currentInput, Button::A | Button::B))
+            constexpr bool isAll(uint16_t state, uint16_t mask) 
+            {
+                return (state & mask) == mask;
+            }
+    
+            // Check if ANY of the specified buttons are pressed
+            // Usage: if (Button::isAny(currentInput, Button::DPAD_UP | Button::DPAD_DOWN))
+            constexpr bool isAny(uint16_t state, uint16_t mask) 
+            {
+                return (state & mask) != 0;
+            }
         }
+
+        void printState(const controller::Ps3::State &stateData, const uint8_t *rawPacket = nullptr, int rawPacketSize = 0);
     }
 }
